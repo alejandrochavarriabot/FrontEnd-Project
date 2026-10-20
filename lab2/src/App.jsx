@@ -8,8 +8,13 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <section id="center">
+  <>
+  <div>
+    <p>Algo, escriban algo</p>
+    </div>
+    
+    
+      {/* <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -114,8 +119,8 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <section id="spacer"></section> */}
+    </> 
   )
 }
 
