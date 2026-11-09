@@ -1,0 +1,86 @@
+/* ==========================================================
+   NutriDecide - estilos compartidos (menú lateral, barra superior,
+   botones, paneles). Usado por presupuesto.html y favoritos.html.
+   Mismos colores y fuente que PerfilClinico para que todo combine.
+   ========================================================== */
+:root {
+  --nd-primary: #a92a4d; --nd-primary-soft: #ca4465;
+  --nd-secondary: #984533; --nd-green: #38654a; --nd-green-soft: #bceecc;
+  --nd-bg: #fff8f8; --nd-line: rgba(222,191,194,.4); --nd-soft: #f9f2f2; --nd-chip: #f3ecec;
+  --nd-ink: #1d1b1b; --nd-muted: #574144;
+  --bs-body-font-family: "Plus Jakarta Sans", sans-serif;
+  --bs-body-color: var(--nd-ink); --bs-body-bg: var(--nd-bg);
+  --bs-body-font-size: .875rem;
+  --bs-secondary-color: var(--nd-muted);
+  --bs-border-color: var(--nd-line);
+  --nd-sidebar-w: 18rem;
+}
+body { -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 3px solid rgba(169,42,77,.4); outline-offset: 2px; }
+.min-w-0 { min-width: 0; }
+.nd-text-primary { color: var(--nd-primary); } .nd-text-secondary { color: var(--nd-secondary); } .nd-text-green { color: var(--nd-green); }
+
+/* Tipografía */
+.nd-h1 { font-size: 2.1rem; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+.nd-h3 { font-size: 1.15rem; font-weight: 700; }
+.nd-h4 { font-size: 1rem; font-weight: 700; }
+.nd-cap { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--nd-muted); }
+
+/* Menú lateral (offcanvas en móvil, fijo en escritorio) */
+.nd-sidebar { --bs-offcanvas-width: var(--nd-sidebar-w); background: var(--nd-bg); }
+@media (min-width: 992px) {
+  .nd-sidebar { position: fixed; inset: 0 auto 0 0; width: var(--nd-sidebar-w); z-index: 1030; border-right: 1px solid var(--nd-line); }
+  .nd-content { margin-left: var(--nd-sidebar-w); }
+}
+.nd-logo { width: 40px; height: 40px; border-radius: .75rem; display: grid; place-items: center; background: var(--nd-primary); color: #fff; font-size: 1.2rem; }
+.nd-brand { font-size: 1.4rem; font-weight: 800; color: var(--nd-primary); line-height: 1.1; }
+.nd-miniprofile { background: var(--nd-soft); border: 1px solid var(--nd-line); border-radius: 1rem; }
+.nd-avatar-lg { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(169,42,77,.2); }
+.nd-avatar-sm { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(169,42,77,.3); }
+.nd-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--nd-green); margin-right: .25rem; }
+.nd-nav { display: flex; align-items: center; gap: .6rem; padding: .6rem 1rem; border-radius: .75rem; color: var(--nd-muted); font-weight: 600; text-decoration: none; transition: background .2s; }
+.nd-nav:hover { background: var(--nd-soft); color: var(--nd-ink); }
+.nd-nav.active { background: var(--nd-primary-soft); color: #fffbff; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+.nd-nav i { font-size: 1.1rem; }
+.nd-btn-gradient { background: var(--nd-primary); color: #fff; font-weight: 600; border: 0; border-radius: .75rem; padding: .7rem 1rem; }
+.nd-btn-gradient:hover { color: #fff; background: var(--nd-primary-soft); }
+
+/* Barra superior */
+.nd-topbar { background: rgba(255,248,248,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--nd-line); z-index: 1020; }
+.nd-search { width: 100%; max-width: 22rem; }
+.nd-search i { position: absolute; left: .8rem; top: 50%; transform: translateY(-50%); color: var(--nd-muted); }
+.nd-search .form-control { padding-left: 2.3rem; border-radius: .75rem; background: #fff; border-color: rgba(222,191,194,.6); }
+.nd-search .form-control:focus { border-color: var(--nd-secondary); box-shadow: 0 0 0 .15rem rgba(152,69,51,.25); }
+.nd-toplink { color: var(--nd-muted); font-weight: 600; text-decoration: none; padding-bottom: .2rem; border-bottom: 2px solid transparent; }
+.nd-toplink:hover { color: var(--nd-ink); }
+.nd-toplink.active { color: var(--nd-primary); border-bottom-color: var(--nd-primary); }
+.nd-budget { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .8rem; border-radius: 999px; background: var(--nd-chip); border: 1px solid rgba(222,191,194,.6); font-weight: 600; color: var(--nd-muted); }
+.nd-budget strong { color: var(--nd-ink); }
+.nd-icon-btn { position: relative; color: var(--nd-muted); border-radius: .75rem; padding: .4rem .6rem; }
+.nd-icon-btn:hover { background: #ede7e7; color: var(--nd-ink); }
+.nd-icon-btn .nd-ping { position: absolute; top: .3rem; right: .35rem; width: 8px; height: 8px; border-radius: 50%; background: var(--nd-primary); }
+
+/* Botones */
+.nd-btn-primary { background: var(--nd-primary); color: #fff; font-weight: 600; border: 0; border-radius: .75rem; padding: .65rem 1.1rem; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+.nd-btn-primary:hover, .nd-btn-primary:focus-visible { background: var(--nd-primary-soft); color: #fff; }
+.nd-btn-light { background: #fff; color: var(--nd-ink); font-weight: 600; border: 1px solid rgba(222,191,194,.6); border-radius: .75rem; padding: .6rem 1rem; }
+.nd-btn-light:hover { background: var(--nd-soft); }
+.btn:active { transform: scale(.97); }
+
+/* Paneles y etiquetas */
+.nd-panel { background: #fff; border: 1px solid var(--nd-line); border-radius: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.nd-soft { background: var(--nd-soft); border: 1px solid rgba(222,191,194,.35); border-radius: .75rem; }
+.badge { font-weight: 700; border-radius: 999px; padding: .4rem .75rem; }
+.nd-badge-green { background: var(--nd-green-soft); color: #002111; }
+.nd-badge-coral { background: rgba(253,148,126,.4); color: #762b1c; }
+.nd-badge-red { background: rgba(169,42,77,.12); color: var(--nd-primary); }
+.nd-icon-box { width: 40px; height: 40px; flex: none; border-radius: .75rem; display: grid; place-items: center; font-size: 1.15rem; }
+.nd-ib-green { background: var(--nd-green-soft); color: #002111; }
+.nd-ib-coral { background: #ffdad3; color: #8a2d1c; }
+.nd-ib-red { background: var(--nd-primary); color: #fff; }
+
+/* Modales y aviso emergente */
+.nd-modal { border: 0; border-radius: 1rem; }
+.nd-toast { background: #333030; color: #f6efef; border: 0; border-radius: .75rem; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

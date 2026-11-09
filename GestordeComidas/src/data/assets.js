@@ -1,0 +1,4 @@
+// Imágenes tomadas del código de tus compañeros (links externos de Google).
+// Si alguna deja de cargar, cámbiala por una foto local en la carpeta /public.
+export const AVATAR_GRANDE = "https://lh3.googleusercontent.com/aida-public/AB6AXuASCMto98hM2Cp55yvpe08p-2sAI-ee5-lFIZGRi7QAcyrKguhLBAw5pVbKPhHt1ueyxQouprNeI8Ysic1NarGCqWTiuKdkNOt0Ow3oCVTHLsSDfErGfdD_TnVQAdr8va-PWAUqBr6IJrAIaC_B1FTPX9phY6zmugqZb3zGF7iEwYkTCRtTC9onk-wa-kdrrJMBuVi284f8JaTRaT_kNqy1UcdLS_h2uHDnkakUvf2wWELxhDsLN4BBZA";
+export const AVATAR_CHICO = "https://lh3.googleusercontent.com/aida-public/AB6AXuCAiwU3kLJaL5grKqOg922BHUk02U6MxIiLI2OIQT2FbjhmwPwmSt5o1mL2TogyzQ_0raC1IofmXV7ZMcLHOdMNPoUIUEkahStJN_pa7iZu8Sb9G5jG3BDmZcUa6bzs9fwFj84yAdpBBL4anNY55JraySwwbFOlSRccN4jn4zPJmIlL6x7KBYDUASWx9gNzT40JnyrDb_Q8s-kYusu4L_wyY4dzgFuwhhw9i6H1J0cVFek0uFxnZiHp5Q";

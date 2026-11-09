@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Presupuesto - NutriDecide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../CSS/nd-base.css" rel="stylesheet">
+  <link href="../CSS/presupuesto.css" rel="stylesheet">
+</head>
+<body>
+  <!-- MENÚ LATERAL (offcanvas en móvil, fijo en escritorio) -->
+  <aside class="offcanvas-lg offcanvas-start nd-sidebar" tabindex="-1" id="sidebar" aria-label="Navegación principal">
+    <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
+      <div class="d-flex flex-column gap-4">
+        <div class="d-flex align-items-center justify-content-between">
+          <a href="descubrir.html" class="d-flex align-items-center gap-3 px-2 text-decoration-none">
+            <span class="nd-logo"><i class="bi bi-egg-fried"></i></span>
+            <div>
+              <h1 class="nd-brand mb-0">NutriDecide</h1>
+              <small class="text-body-secondary fw-bold">Plan Consciente</small>
+            </div>
+          </a>
+          <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="nd-miniprofile d-flex align-items-center gap-3 p-3">
+          <img class="nd-avatar-lg" alt="Valentina Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCMto98hM2Cp55yvpe08p-2sAI-ee5-lFIZGRi7QAcyrKguhLBAw5pVbKPhHt1ueyxQouprNeI8Ysic1NarGCqWTiuKdkNOt0Ow3oCVTHLsSDfErGfdD_TnVQAdr8va-PWAUqBr6IJrAIaC_B1FTPX9phY6zmugqZb3zGF7iEwYkTCRtTC9onk-wa-kdrrJMBuVi284f8JaTRaT_kNqy1UcdLS_h2uHDnkakUvf2wWELxhDsLN4BBZA">
+          <div class="min-w-0">
+            <p class="fw-bold mb-0 text-truncate">Valentina Ruiz</p>
+            <small class="nd-text-green fw-semibold"><span class="nd-dot"></span>Plan Vital Saludable</small>
+          </div>
+        </div>
+
+        <nav class="nav flex-column gap-1" aria-label="Secciones">
+          <a class="nd-nav" href="descubrir.html"><i class="bi bi-compass"></i>Descubrir</a>
+          <a class="nd-nav" href="asistente.html"><i class="bi bi-stars"></i>Asistente Inteligente</a>
+          <a class="nd-nav" href="PerfilClinico.html"><i class="bi bi-shield-plus"></i>Mis Dietas y Salud</a>
+          <a class="nd-nav active" href="presupuesto.html" aria-current="page"><i class="bi bi-cash-stack"></i>Mi Presupuesto</a>
+          <a class="nd-nav" href="favoritos.html"><i class="bi bi-bookmark"></i>Favoritos e Historial</a>
+        </nav>
+      </div>
+
+      <div class="pt-3 border-top">
+        <button class="btn nd-btn-gradient w-100 mb-2" id="surpriseBtn"><i class="bi bi-stars me-2"></i>Sorpréndeme</button>
+        <a class="nd-nav" href="Confi.html"><i class="bi bi-gear"></i>Ajustes</a>
+        <a class="nd-nav" href="login.html"><i class="bi bi-box-arrow-right"></i>Cerrar Sesión</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="nd-content">
+    <!-- BARRA SUPERIOR -->
+    <header class="nd-topbar sticky-top">
+      <div class="d-flex align-items-center justify-content-between gap-3 px-3 px-lg-4 py-2">
+        <div class="d-flex align-items-center gap-2 flex-grow-1">
+          <button class="btn btn-light d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-label="Abrir menú"><i class="bi bi-list fs-5"></i></button>
+          <div class="nd-search position-relative">
+            <i class="bi bi-search"></i>
+            <input type="search" class="form-control" id="searchInput" placeholder="Buscar gastos, ingredientes o recetas..." aria-label="Buscar">
+          </div>
+          <nav class="d-none d-xl-flex gap-4 ms-3" aria-label="Vistas">
+            <a class="nd-toplink" href="asistente.html">Hoy</a>
+            <a class="nd-toplink active" href="presupuesto.html" aria-current="page">Semanario</a>
+            <a class="nd-toplink" href="#">Despensa</a>
+          </nav>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="nd-budget d-none d-md-inline-flex"><span class="nd-dot"></span> Restante: <strong id="topRemaining">$42.50</strong> <span id="topLimit">/ $120</span></span>
+          <a class="btn nd-icon-btn" href="favoritos.html" aria-label="Favoritos"><i class="bi bi-heart"></i></a>
+          <button class="btn nd-icon-btn" aria-label="Notificaciones" data-notify="No tienes notificaciones nuevas"><i class="bi bi-bell"></i><span class="nd-ping"></span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-xxl px-3 px-lg-4 py-4 d-flex flex-column gap-4">
+
+      <!-- Encabezado -->
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-start gap-3">
+        <div>
+          <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+            <h2 class="nd-h1 mb-0">Gestión de Presupuesto</h2>
+            <span class="badge nd-badge-green">Semana 18: Saludable &amp; Eficiente</span>
+          </div>
+          <p class="text-body-secondary mb-0">Equilibrio entre nutrición de alta calidad y control de gastos conscientes.</p>
+        </div>
+        <ul class="nav pp-periods" id="periodTabs" aria-label="Periodo">
+          <li class="nav-item"><button class="nav-link active" type="button" data-period="Esta Semana">Esta Semana</button></li>
+          <li class="nav-item"><button class="nav-link" type="button" data-period="Mes Actual">Mes Actual</button></li>
+          <li class="nav-item"><button class="nav-link" type="button" data-period="Histórico">Histórico</button></li>
+        </ul>
+      </div>
+
+      <!-- Tres tarjetas resumen -->
+      <section class="row g-3" aria-label="Resumen del presupuesto">
+        <div class="col-lg-4">
+          <article class="nd-panel p-3 p-xl-4 h-100 d-flex flex-column gap-3">
+            <div class="d-flex justify-content-between align-items-start gap-2">
+              <div>
+                <div class="nd-cap mb-2">Presupuesto semanal</div>
+                <div class="pp-amount">$77.50 <small>/ <span id="wkLimit">$120.00</span></small></div>
+              </div>
+              <span class="badge nd-badge-green text-wrap text-start" id="wkBadge" style="max-width:9rem">Dentro de lo planificado</span>
+            </div>
+            <div>
+              <div class="progress pp-track" role="progressbar" aria-label="Presupuesto utilizado" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" id="wkTrack"><div class="progress-bar pp-bar-red" id="wkBar" style="width:64%"></div></div>
+              <div class="d-flex justify-content-between pp-sub mt-2"><span id="wkPct">64% utilizado</span><span class="nd-text-green" id="wkAvail">$42.50 disponible</span></div>
+            </div>
+            <div class="pp-divider pt-3 mt-auto d-flex justify-content-between align-items-center pp-sub">
+              <span id="wkDaily">Meta: $17.14/día</span>
+              <button type="button" class="pp-link" data-bs-toggle="modal" data-bs-target="#limitModal">Ajustar Límite <i class="bi bi-sliders ms-1"></i></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-4">
+          <article class="nd-panel p-3 p-xl-4 h-100 d-flex flex-column gap-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <div class="nd-cap mb-2">Ahorro vs. comer fuera</div>
+                <div class="pp-amount nd-text-green">+$84.20 <span class="badge nd-badge-green fs-6 fw-semibold align-middle ms-1" style="font-size:.75rem!important">Ahorrado</span></div>
+              </div>
+              <span class="nd-icon-box nd-ib-green"><i class="bi bi-piggy-bank-fill"></i></span>
+            </div>
+            <div class="pp-note d-flex align-items-center gap-3 p-3">
+              <i class="bi bi-cup-hot nd-text-secondary fs-5"></i>
+              <span><strong>4 comidas caseras optimizadas nutricionalmente esta semana.</strong></span>
+            </div>
+            <div class="pp-divider pt-3 mt-auto d-flex justify-content-between pp-sub">
+              <span>Impacto mensual estimado</span><span class="text-body">~$336.80</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-4">
+          <article class="nd-panel p-3 p-xl-4 h-100 d-flex flex-column gap-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <div class="nd-cap mb-2">Costo promedio por ración</div>
+                <div class="pp-amount">$3.85 <small>/plato</small></div>
+              </div>
+              <span class="nd-icon-box nd-ib-coral"><i class="bi bi-pie-chart"></i></span>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex justify-content-between pp-sub"><span class="text-body">NutriDecide casero</span><span class="nd-text-green">$3.85</span></div>
+              <div class="progress pp-track" style="height:.45rem" role="progressbar" aria-label="Costo casero frente a delivery" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar pp-bar-green" style="width:27%"></div></div>
+              <div class="d-flex justify-content-between pp-sub"><span>Promedio Delivery/Restaurante</span><span>$14.50</span></div>
+            </div>
+            <div class="pp-divider pt-3 mt-auto d-flex justify-content-between pp-sub">
+              <span>Ratio de eficiencia</span><span class="nd-text-primary fw-bold">3.7x más económico</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Gráfico semanal -->
+      <section class="nd-panel p-3 p-xl-4" aria-labelledby="chartTitle">
+        <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+          <div>
+            <h3 class="nd-h3 mb-1" id="chartTitle">Evolución de Gastos vs. Límite Diario</h3>
+            <p class="text-body-secondary small mb-0">Seguimiento de compras de ingredientes y preparaciones diarias.</p>
+          </div>
+          <div class="pp-legend d-flex flex-wrap align-items-start gap-3">
+            <span><span class="pp-swatch" style="background:#38654a"></span>Dentro de meta</span>
+            <span><span class="pp-swatch" style="background:#a92a4d"></span>Día pico</span>
+            <span><span class="pp-swatch-dash"></span><span id="legendLimit">Objetivo diario ($17.00)</span></span>
+          </div>
+        </div>
+
+        <div class="pp-plot" id="plot" style="--lim:17" role="img" aria-label="Gasto diario de la semana: lunes 11.50, martes 8.20, miércoles 14.00, jueves 9.50, viernes 19.30 (día pico), sábado 15.00. Domingo aún sin gastos.">
+          <div class="pp-limit"><span id="limitLabel">Límite Diario: $17.00</span></div>
+          <div class="pp-cols">
+            <div class="pp-col" data-v="11.5" data-day="Lun" title="Lun: $11.50"><span class="pp-val">$11.50</span><div class="pp-bar" style="--v:11.5"></div></div>
+            <div class="pp-col" data-v="8.2" data-day="Mar" title="Mar: $8.20"><span class="pp-val">$8.20</span><div class="pp-bar" style="--v:8.2"></div></div>
+            <div class="pp-col" data-v="14.0" data-day="Mié" title="Mié: $14.00"><span class="pp-val">$14.00</span><div class="pp-bar" style="--v:14.0"></div></div>
+            <div class="pp-col" data-v="9.5" data-day="Jue" title="Jue: $9.50"><span class="pp-val">$9.50</span><div class="pp-bar" style="--v:9.5"></div></div>
+            <div class="pp-col" data-v="19.3" data-day="Vie" title="Vie: $19.30"><span class="pp-val">$19.30</span><div class="pp-bar" style="--v:19.3"></div></div>
+            <div class="pp-col" data-v="15.0" data-day="Sáb" title="Sáb: $15.00"><span class="pp-val">$15.00</span><div class="pp-bar" style="--v:15.0"></div></div>
+            <div class="pp-col is-today" title="Hoy"><span class="pp-val">Hoy</span><div class="pp-bar" style="--v:1.6"></div></div>
+          </div>
+        </div>
+        <div class="pp-days" aria-hidden="true">
+            <span data-day-label="Lun">Lun</span>
+            <span data-day-label="Mar">Mar</span>
+            <span data-day-label="Mié">Mié</span>
+            <span data-day-label="Jue">Jue</span>
+            <span data-day-label="Vie">Vie</span>
+            <span data-day-label="Sáb">Sáb</span>
+            <span>Dom</span>
+        </div>
+      </section>
+
+      <!-- Categorías + micro-asistente -->
+      <div class="row g-3">
+        <section class="col-lg-7" aria-labelledby="catTitle">
+          <div class="nd-panel p-3 p-xl-4 h-100 d-flex flex-column gap-4">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 class="nd-h3 mb-1" id="catTitle">Gastos por Categoría Culinaria</h3>
+                <p class="text-body-secondary small mb-0">Distribución equilibrada para nutrición óptima.</p>
+              </div>
+              <button class="btn nd-icon-btn" aria-label="Filtrar categorías" data-notify="Filtros de categoría: próximamente"><i class="bi bi-sliders2"></i></button>
+            </div>
+            <div class="d-flex flex-column gap-3 mt-auto">
+            <div class="pp-cat" style="--c:#a92a4d">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-1">
+                <span class="fw-semibold"><span class="pp-cat-dot"></span>Proteínas y Carnes/Pescado de calidad</span>
+                <span class="text-nowrap"><strong>$29.45</strong> <span class="text-body-secondary">(38%)</span></span>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Proteínas y Carnes/Pescado de calidad" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:38%"></div></div>
+            </div>
+            <div class="pp-cat" style="--c:#38654a">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-1">
+                <span class="fw-semibold"><span class="pp-cat-dot"></span>Verduras y Productos Frescos de despensa</span>
+                <span class="text-nowrap"><strong>$20.15</strong> <span class="text-body-secondary">(26%)</span></span>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Verduras y Productos Frescos de despensa" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:26%"></div></div>
+            </div>
+            <div class="pp-cat" style="--c:#f98a73">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-1">
+                <span class="fw-semibold"><span class="pp-cat-dot"></span>Granos, Quinoa y Carbohidratos sin gluten</span>
+                <span class="text-nowrap"><strong>$15.50</strong> <span class="text-body-secondary">(20%)</span></span>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Granos, Quinoa y Carbohidratos sin gluten" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:20%"></div></div>
+            </div>
+            <div class="pp-cat" style="--c:#8b6b70">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-1">
+                <span class="fw-semibold"><span class="pp-cat-dot"></span>Aceites y Especias especiales</span>
+                <span class="text-nowrap"><strong>$12.40</strong> <span class="text-body-secondary">(16%)</span></span>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Aceites y Especias especiales" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:16%"></div></div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="col-lg-5" aria-labelledby="assistTitle">
+          <div class="nd-panel pp-assist p-3 p-xl-4 h-100 d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <span class="nd-icon-box nd-ib-red" style="width:32px;height:32px;font-size:1rem"><i class="bi bi-lightbulb-fill"></i></span>
+              <span class="pp-assist-eyebrow">Micro-asistente de ahorro</span>
+            </div>
+            <h3 class="nd-h3 mb-0" id="assistTitle" style="font-size:1.3rem">Próxima Decisión Culinaria</h3>
+            <p class="pp-assist-box p-3 mb-0">Tienes <strong>quinoa y calabacín</strong> en despensa. Si tu próxima comida cuesta menos de <span class="nd-text-green">$4.50</span>, terminarás la semana ahorrando <span class="nd-text-primary">$12 adicionales</span>.</p>
+            <button class="btn nd-btn-primary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#recipesModal"><i class="bi bi-fork-knife me-2"></i>Ver 3 recetas ultra-económicas (&lt; $5)</button>
+            <p class="text-center text-body-secondary small mb-0">Calculado según tus ingredientes sin gluten en despensa</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: ajustar límite semanal -->
+  <div class="modal fade" id="limitModal" tabindex="-1" aria-labelledby="limitTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content nd-modal" id="limitForm" novalidate>
+        <div class="modal-header border-0"><h5 class="modal-title fw-bold" id="limitTitle">Ajustar límite semanal</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+        <div class="modal-body pt-0">
+          <label for="limitInput" class="form-label fw-semibold">Nuevo límite (USD por semana)</label>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control" id="limitInput" min="10" max="5000" step="0.5" value="120" required>
+            <div class="invalid-feedback">Escribe un monto entre 10 y 5000.</div>
+          </div>
+          <p class="small text-body-secondary mt-2 mb-0" id="limitHint">Meta diaria resultante: $17.14</p>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn nd-btn-light" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn nd-btn-primary">Guardar límite</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: recetas ultra-económicas -->
+  <div class="modal fade" id="recipesModal" tabindex="-1" aria-labelledby="recipesTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content nd-modal">
+        <div class="modal-header border-0"><h5 class="modal-title fw-bold" id="recipesTitle">Recetas ultra-económicas (&lt; $5)</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+        <div class="modal-body pt-0 d-flex flex-column gap-2">
+          <div class="nd-soft p-3 d-flex justify-content-between align-items-center"><span class="fw-semibold">Crema Suave de Calabaza &amp; Semillas Tostadas</span><span class="badge nd-badge-green">$2.40</span></div>
+          <div class="nd-soft p-3 d-flex justify-content-between align-items-center"><span class="fw-semibold">Bowl Mediterráneo de Quinoa y Aguacate</span><span class="badge nd-badge-green">$3.85</span></div>
+          <div class="nd-soft p-3 d-flex justify-content-between align-items-center"><span class="fw-semibold">Tacos Saludables de Pollo y Yogur Griego</span><span class="badge nd-badge-green">$4.50</span></div>
+        </div>
+        <div class="modal-footer border-0"><a href="favoritos.html" class="btn nd-btn-primary">Ver en Favoritos</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso emergente -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="appToast" class="toast nd-toast align-items-center" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex"><div class="toast-body" id="appToastBody"></div><button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/nd-comun.js"></script>
+  <script src="../js/presupuesto.js"></script>
+</body>
+</html>

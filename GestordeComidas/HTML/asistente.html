@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriDecide - Asistente Inteligente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../CSS/asistente.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <aside class="menu-lateral">
+        <a href="descubrir.html" class="logo">
+            <i class="bi bi-cup-hot-fill"></i>
+            <div>
+                <b>NutriDecide</b>
+                <small>Plan Consciente</small>
+            </div>
+        </a>
+        <div class="tarjeta-usuario">
+            <div class="avatar"></div>
+            <div>
+                <b>Luna</b>
+                <br>
+                <small class="text-success">● Saludable </small>
+            </div>
+        </div>
+        <a href="descubrir.html" class="enlace-menu ">
+            <i class="bi bi-compass"></i>
+            Descubrir
+        </a>
+        <a href="asistente.html" class="enlace-menu activo">
+            <i class="bi bi-stars"></i>
+            Asistente Inteligente
+        </a>
+        <a href="dietas.html" class="enlace-menu ">
+            <i class="bi bi-shield-plus"></i>
+            Mis Dietas y Salud
+        </a>
+        <a href="presupuesto.html" class="enlace-menu ">
+            <i class="bi bi-wallet2"></i>
+            Mi Presupuesto
+        </a>
+        <a href="favoritos.html" class="enlace-menu ">
+            <i class="bi bi-bookmark"></i>
+            Favoritos e Historial
+        </a>
+        <div class="parte-baja">
+            <button type="button" class="boton-sorpresa-menu boton-sorpresa">
+                <i class="bi bi-stars"></i>
+                Sorpréndeme
+            </button>
+            <a href="dietas.html" class="enlace-menu">
+                <i class="bi bi-gear"></i>
+                Ajustes
+            </a>
+            <a href="descubrir.html" class="enlace-menu">
+                <i class="bi bi-box-arrow-right"></i>
+                Cerrar Sesión
+            </a>
+        </div>
+    </aside>
+
+
+    <main class="contenido-asistente">
+    
+        <header class="barra-arriba">
+            <div class="buscador">
+                <i class="bi bi-search"></i>
+                <input type="text" class="form-control" placeholder="Buscar recetas, ingredientes...">
+            </div>
+            <div class="enlaces-tiempo">
+                <a href="#" class="activo">Hoy</a>
+                <a href="#">Semanal</a>
+                <a href="#">Despensa</a>
+            </div>
+            <div class="pildora-presupuesto">
+                <i class="bi bi-cash-stack"></i>
+                Presupuesto: <b>$25.000</b>
+            </div>
+            <i class="bi bi-bell campana"></i>
+            <i class="bi bi-heart"></i>
+            <button type="button" class="boton-rojo boton-sorpresa">
+                <i class="bi bi-stars"></i>
+                Sorpréndeme
+            </button>
+        </header>
+
+        <section class="encabezado">
+            <div>
+                <span class="etiqueta-rosa">MODO INTELIGENTE</span>
+                <small class="ms-2"><i class="bi bi-lightning-charge-fill texto-vino"></i> 30 segundos para resolver tu plato</small>
+                <h1>Asistente de Decisión</h1>
+                <p class="text-muted">Resuelve tu dilema de comida en 30 segundos ajustando tus necesidades.</p>
+            </div>
+            <div class="tarjeta-ingredientes">
+                <span class="circulo-verde"><i class="bi bi-check-lg"></i></span>
+                <div>
+                    <b>8 ingredientes disponibles</b>
+                    <br>
+                    <small class="text-success">Libre de harinas activado</small>
+                </div>
+            </div>
+        </section>
+        <div class="row g-3">
+
+        
+            <div class="col-lg-6">
+                <div class="tarjeta">
+                    <div class="tarjeta-cabecera">
+                        <div class="d-flex gap-2">
+                            <span class="icono-tarjeta"><i class="bi bi-clock"></i></span>
+                            <div>
+                                <h6>¿Cuánto tiempo tienes para cocinar hoy?</h6>
+                                <small class="text-muted">Ajusta el tiempo límite exacto de preparación</small>
+                            </div>
+                        </div>
+                        <div class="valor-caja">
+                            <b id="valor-tiempo">25</b>
+                            <small>min</small>
+                        </div>
+                    </div>
+                    <input type="range" id="tiempo" class="deslizador" min="10" max="60" step="5" value="25">
+                    <div class="escala">
+                        <span>10 min</span>
+                        <span class="marca">25 min</span>
+                        <span>40 min</span>
+                        <span>60 min</span>
+                    </div>
+                    <p class="etiqueta-seccion">AJUSTES RÁPIDOS</p>
+                    <div class="grupo-chips" id="chips-tiempo">
+                        <button type="button" class="chip " data-min="0" data-max="14" data-valor="12">
+                            Ultra rápido (< 15 min)
+                        </button>
+                        <button type="button" class="chip " data-min="20" data-max="30" data-valor="25">
+                            Estándar (20–30 min)
+                        </button>
+                        <button type="button" class="chip " data-min="45" data-max="999" data-valor="50">
+                            Sin prisa (+45 min)
+                        </button>
+                    </div>
+                    <p class="nota"><i class="bi bi-droplet-fill text-success"></i> Ideal para cocinar rico en poco tiempo</p>
+                </div>
+            </div>
+
+        
+            <div class="col-lg-6">
+                <div class="tarjeta">
+                    <div class="tarjeta-cabecera">
+                        <div class="d-flex gap-2">
+                            <span class="icono-tarjeta"><i class="bi bi-cash-stack"></i></span>
+                            <div>
+                                <h6>¿Cuál es tu presupuesto para esta comida?</h6>
+                                <small class="text-muted">Estimación de costo por porción</small>
+                            </div>
+                        </div>
+                        <div class="valor-caja valor-rosa">
+                            <b id="valor-presupuesto">$10.000</b>
+                        </div>
+                    </div>
+                    <input type="range" id="presupuesto" class="deslizador" min="3" max="25" step="0.5" value="8.5">
+                    <div class="escala">
+                        <span>$5.000</span>
+                        <span class="marca">$10.000</span>
+                        <span>$15.00</span>
+                        <span>$25.00</span>
+                    </div>
+                    <p class="etiqueta-seccion">RANGO PRESUPUESTARIO</p>
+                    <div class="grupo-chips" id="chips-presupuesto">
+                        <button type="button" class="chip chip-cafe" data-min="0" data-max="4.99" data-valor="4">
+                            Súper económico (< $5.000)
+                        </button>
+                        <button type="button" class="chip chip-cafe" data-min="5" data-max="10" data-valor="8.5">
+                            Equilibrado ($5.000 – $10.000)
+                        </button>
+                        <button type="button" class="chip chip-cafe" data-min="10.5" data-max="99" data-valor="15">
+                            Gourmet / Gustito ($10.000+)
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <small>Presupuesto restante hoy: <b>$15.000</b></small>
+                        <span class="etiqueta-verde" id="estado-plan">Dentro del plan</span>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="col-lg-6">
+                <div class="tarjeta">
+                    <div class="d-flex gap-2 mb-3">
+                        <span class="icono-tarjeta"><i class="bi bi-heart"></i></span>
+                        <div>
+                            <h6>¿Qué antojo buscas?</h6>
+                            <small class="text-muted">Conecta tu apetito actual con la propuesta perfecta</small>
+                        </div>
+                    </div>
+                    <div class="row g-2" id="antojos">
+                        <div class="col-6">
+                            <button type="button" class="opcion-antojo activo" data-nombre="Reconfortante y caliente">
+                                <i class="bi bi-cup-hot"></i>
+                                <div>
+                                    <b>Salado y caliente</b>
+                                    <small>Favorito hoy</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="opcion-antojo " data-nombre="Fresco y ligero">
+                                <i class="bi bi-flower2"></i>
+                                <div>
+                                    <b>Fresco y ligero</b>
+                                    <small>Ensaladas, bowls</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="opcion-antojo " data-nombre="Crujiente y saciante">
+                                <i class="bi bi-grid-3x3-gap"></i>
+                                <div>
+                                    <b>Crujiente y picante</b>
+                                    <small>Tostadas, ramen</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="opcion-antojo " data-nombre="Dulce y energético">
+                                <i class="bi bi-cake2"></i>
+                                <div>
+                                    <b>Dulce y energético</b>
+                                    <small>Avena, frutas, postres</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="opcion-antojo " data-nombre="Especiado / Sabores intensos">
+                                <i class="bi bi-fire"></i>
+                                <div>
+                                    <b>Sabores intensos</b>
+                                    <small>Curry, hierbas aromáticas</small>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="etiqueta-seccion mt-3">TIPO DE PORCIÓN</p>
+                    <div class="grupo-chips" id="porciones">
+                        <button type="button" class="opcion-porcion activo">
+                            Almuerzo completo
+                        </button>
+                        <button type="button" class="opcion-porcion ">
+                            Almuerzo ligero
+                        </button>
+                        <button type="button" class="opcion-porcion ">
+                            Snack sustancioso
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="col-lg-6">
+                <div class="tarjeta">
+                    <div class="d-flex gap-2 mb-3">
+                        <span class="icono-tarjeta icono-verde"><i class="bi bi-basket"></i></span>
+                        <div>
+                            <h6>Ingredientes clave y despensa</h6>
+                            <small class="text-muted">Priorización inteligente contra el desperdicio</small>
+                        </div>
+                    </div>
+                    <div class="fila-ingrediente verde encendida">
+                        <span class="casilla"><i class="bi bi-check"></i></span>
+                        <div class="flex-grow-1">
+                            <b>Usar ingredientes por caducar primero</b> <span class="etiqueta-activo" id="estado-caducar">ACTIVO</span>
+                            <br>
+                            <small>Priorizando: <span class="texto-verde">Lechuga Fresca (2 días)</span>, <span class="texto-verde">Huevos  (3 días)</span></small>
+                        </div>
+                        <label class="interruptor">
+                            <input type="checkbox" id="caducar" checked>
+                            <span class="pista"></span>
+                        </label>
+                    </div>
+                    <div class="fila-ingrediente rojo encendida">
+                        <span class="casilla"><i class="bi bi-check"></i></span>
+                        <div class="flex-grow-1">
+                            <b>Solo ingredientes que ya tengo</b> 
+                            <br>
+                            <small>Cero compras extras.</small>
+                        </div>
+                        <label class="interruptor">
+                            <input type="checkbox" id="solo-tengo" checked>
+                            <span class="pista"></span>
+                        </label>
+                    </div>
+                    <div class="fila-ingrediente cafe encendida">
+                        <span class="casilla"><i class="bi bi-check"></i></span>
+                        <div class="flex-grow-1">
+                            <b>Modo Ahorro Máximo</b> 
+                            <br>
+                            <small>Baja tu presupuesto a lo mínimo posible</small>
+                        </div>
+                        <label class="interruptor">
+                            <input type="checkbox" id="ahorro" checked>
+                            <span class="pista"></span>
+                        </label>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <small><i class="bi bi-shield-check text-success"></i> Filtro de alergias bloqueado y seguro</small>
+                        <a href="dietas.html" class="texto-vino"><small>Editar</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="barra-decision">
+            <span class="icono-algoritmo"><i class="bi bi-sliders"></i></span>
+            <div class="flex-grow-1">
+                <b>Algoritmo listo</b>
+                <span class="etiqueta-verde"><span id="afinidad">98</span>% de afinidad</span>
+                <br>
+                <small class="text-muted">3 opciones altamente compatibles detectadas con tus 8 ingredientes</small>
+            </div>
+            <button type="button" class="boton-limpiar" id="boton-limpiar">
+                <i class="bi bi-arrow-repeat"></i>
+                Limpiar filtros
+            </button>
+            <button type="button" class="boton-decidir" id="boton-decidir">
+                <i class="bi bi-magic"></i>
+                ¡Decidir mi Comida Ahora!
+            </button>
+        </div>
+    </main>
+
+   
+    <div class="modal fade" id="modalResultado" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ventana-resultado">
+                <div class="modal-body text-center p-4">
+                    <span class="etiqueta-rosa">TU DECISIÓN</span>
+                    <h4 class="mt-3" id="resultado-titulo"></h4>
+                    <p class="text-muted" id="resultado-descripcion"></p>
+                    <p class="resumen" id="resultado-resumen"></p>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="descubrir.html" class="boton-limpiar text-decoration-none">Ver más recetas</a>
+                        <button type="button" class="boton-decidir" data-bs-dismiss="modal">¡Perfecto!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mi JavaScript -->
+    <script src="../js/asistente.js"></script>
+</body>
+</html>

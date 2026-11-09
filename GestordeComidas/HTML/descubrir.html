@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriDecide - Descubrir</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../CSS/style.css" rel="stylesheet">
+</head>
+<body data-page="descubrir.html">
+
+    <div class="menu" id="menu"></div>
+    <main class="contenido">
+        <div class="barra-superior" id="barra-superior"></div>
+
+        <section class="bienvenida mb-4">
+            <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <span class="etiqueta-roja">
+                            <i class="bi bi-lightning-charge-fill"></i>
+
+                            Recomendación instantánea 
+
+                        </span>
+
+                        <span class="etiqueta-verde bg-white">
+                            <i class="bi bi-check-circle"></i>
+                            Adaptado a tu economía
+
+                        </span>
+
+                        <h2>¿No sabes qué cocinar?
+                            Resolvemos tu almuerzo
+                        </h2>
+
+                        <p class="text-muted mb-2">Basado en ingredientes que tienes a la mano</p>
+
+                        <small class="me-2">Filtro ágil</small>
+
+                        <span class="filtro">
+                            <i class="bi bi-stopwatch"></i> Menos de 20 minutos
+                        </span>
+
+                        <span class="filtro">
+                            <i class="bi bi-piggy-bank"></i>
+                            Económico &lt; $20.000
+                        </span>
+
+                        <span class="filtro">
+                            <i class="bi bi-flower1"></i> Bajo en carbohidratos
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-3 text-center mt-3 mt-md-0">
+                        <a href="#" id="boton-sorpresa" class="btn boton-principal">
+                            <i class="bi bi-dice-5-fill"></i> ¡Sorpréndeme!
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                        <div class="small mt-2">
+                            <a href="presupuesto.html" class="text-decoration-none text-dark"> Ó
+                                <u class="texto-morado">armar menú aleatorio semanal</u></a>
+                        </div>
+
+                    </div>
+
+            </div>
+        </section>
+
+        <div class="row g-3">
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="titulo-seccion">
+                        <i class="bi bi-brightness-high"></i>
+                        Inspiración del día
+
+                        <span class="etiqueta-roja">Selección Para Hoy</span>
+
+                    </span>
+
+                    <a href="favoritos.html" class="small text-decoration-none fw-semibold texto-morado"> Ver más sugerencias</a>
+
+                </div>
+
+                <div  class="row g-3">
+                    <div class="col-md-4">
+                        <div class="tarjeta-receta">
+                            <div class="imagen-receta">
+                                <img src="imagenes/bowl-mediterraneo.jpeg" alt="Bowl Mediterráneo">
+                                <span class="etiqueta-verde">
+                                    <i class="bi bi-check-circle"></i>
+                                    Con verduras
+                                </span>
+
+                                <span class="porcentaje">
+                                     98%
+
+                                    <br>
+
+                                    Match
+
+                                </span>
+
+                                <div class="informacion-receta">
+                                    <span>
+                                        <i class="bi bi-clock"></i>
+                                        15 minutos
+                                    </span>
+
+                                    <span>
+                                         $12.000 · 480 kcal
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="contenido-receta">
+                                <h6 class="text-truncate"> Bowl Mediterráneo</h6>
+                                <p> combinación de tomates frescos, aceitunas, pepino y cebolla morada sobre quinua, complementado con garbanzos y queso parmesano.</p>
+
+                                <div class="d-flex justify-content-between
+                                    align-items-center mt-2">
+
+                                    <div class="despensa">
+                                        <i class="bi bi-journal-text"></i>
+
+                                        Despensa:
+                                        <br>
+                                        3/5
+                                     </div>
+
+                                     <a href="../HTML/asistente.html" class="btn boton-secundario px-4"> Ver detalles</a>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="tarjeta-receta">
+                            <div class="imagen-receta">
+                                <img src="imagenes/Tacos-saludables.jfif" alt="Tacos Saludables">
+                                <span class="etiqueta-verde">
+                                    <i class="bi bi-check-circle"></i>
+                                    Con proteina
+
+                                </span>
+                                <span class="porcentaje">
+                                     95%
+
+                                    <br>
+
+                                    Match
+
+                                </span>
+                                <div class="informacion-receta">
+                                    <span>
+                                        <i class="bi bi-clock"></i>
+                                        20 minutos
+                                    </span>
+
+                                    <span>
+                                         $10.000 · 515 kcal
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            <div class="contenido-receta">
+                                <h6 class="text-truncate"> Tacos saludables de pollo</h6>
+                                <p>Tacos de pechuga crocante, lechuga, guacamole y aderezo de yogur griego.</p>
+
+                                <div class="d-flex justify-content-between
+                                    align-items-center mt-2">
+
+                                    <div class="despensa"> 
+                                        <i class="bi bi-journal-text"></i>
+                                        Despensa:
+                                        <br>
+                                        4/5
+
+                                    </div>
+
+                                    <a href="../HTML/asistente.html" class="btn boton-secundario px-4">
+                                        Ver detalles
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div  class="col-md-4">
+                        <div class="tarjeta-receta">
+                            <div class="imagen-receta">
+                                <img src="imagenes/Pasta-cremosa.jfif" alt="Pasta cremosa de tomate">
+                                <span class="etiqueta-verde">
+                                    <i class="bi bi-check-circle"></i>
+                                    Carbohidrato
+
+                                </span>
+                                <span class="porcentaje">
+                                    92%
+
+                                    <br>
+
+                                    Match
+
+
+                                </span>
+
+                                <div class="informacion-receta">
+                                    <span>
+                                        <i class="bi bi-clock"></i>
+                                        20 minutos
+                                    </span>
+                                    <span>
+                                         $8.000 · 550 kcal
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="contenido-receta">
+                                <h6 class="text-truncate"> Pasta cremosa de tomate</h6>
+                                <p>Tornillos de pasta y cubos de pechuga de pollo integrados con crema de tomate casera con hierbas.</p>
+
+                                <div class="d-flex justify-content-between
+                                    align-items-center mt-2">
+                                    <div class="despensa">
+                                        <i class="bi bi-journal-text"></i>
+                                        Despensa:
+                                        <br>
+                                        5/5
+
+                                    </div>
+                                    <a href="../HTML/asistente.html" class="btn boton-secundario px-4">
+                                        Ver detalles
+
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="panel">
+                    <div class="d-flex justify-content-between">
+                        <h6>
+                            <i class="bi bi-emoji-smile"></i>
+                            ¿Cuál es tu antojo?
+                        </h6>
+
+
+                    </div>
+                    <p class="small text-muted mb-2"> Filtra por textura o sabor:</p>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="antojo">
+                                <i class="bi bi-grid-3x3-gap"></i>
+                                <div>
+                                     Crujiente
+
+                                    <br>
+
+                                    <small>
+
+                                        2 recetas
+
+                                    </small>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <div class="antojo seleccionado">
+                                 <i class="bi bi-cup-hot"></i>
+
+
+                                <div>
+
+
+                                    <span class="texto-morado">
+
+                                        Salado
+
+                                    </span>
+
+
+                                    <br>
+
+
+                                    <small class="texto-morado">
+
+                                        3 recetas
+
+                                    </small>
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <div class="antojo">
+                                <i class="bi bi-cake2"></i>
+                                <div>
+                                    Dulce
+                                    <br>
+                                    <small> 3 opciones</small>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                        <div class="antojo">
+                            <i class="bi bi-flower2 icono-verde"></i>
+                            <div>
+                                Ligero y Saludable
+                                <br>
+                                <small>
+                                    2 bowls
+                                </small>
+                            </div>
+
+                        </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <div class="panel">
+                <h6 class="small">
+                    <i  class="bi bi-robot icono-morado"></i>
+                    Asistente Express
+
+                </h6>
+                <div class="mensaje-asistente mb-2">
+                     Te sobran <b>Papas</b> y
+                        <b>Salchicha</b>.
+                        ¿Te sugiero unas Salchipapas con huevo tibio en
+                        15 min por solo $6.000?
+
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="../HTML/asistente.html" class="btn boton-verde flex-grow-1">¡Sí, prepárala!</a>
+                    <a href="#" class="btn boton-secundario">Otra idea</a>
+
+                </div>
+            </div>
+            </div>
+        </div>
+</main>
+
+  <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <script src="../js/app.js"></script>
+
+    
+</body>
+</html>

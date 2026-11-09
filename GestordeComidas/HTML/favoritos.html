@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Favoritos e Historial - NutriDecide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../CSS/nd-base.css" rel="stylesheet">
+  <link href="../CSS/favoritos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- MENÚ LATERAL (offcanvas en móvil, fijo en escritorio) -->
+  <aside class="offcanvas-lg offcanvas-start nd-sidebar" tabindex="-1" id="sidebar" aria-label="Navegación principal">
+    <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
+      <div class="d-flex flex-column gap-4">
+        <div class="d-flex align-items-center justify-content-between">
+          <a href="descubrir.html" class="d-flex align-items-center gap-3 px-2 text-decoration-none">
+            <span class="nd-logo"><i class="bi bi-egg-fried"></i></span>
+            <div>
+              <h1 class="nd-brand mb-0">NutriDecide</h1>
+              <small class="text-body-secondary fw-bold">Plan Consciente</small>
+            </div>
+          </a>
+          <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="nd-miniprofile d-flex align-items-center gap-3 p-3">
+          <img class="nd-avatar-lg" alt="Valentina Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCMto98hM2Cp55yvpe08p-2sAI-ee5-lFIZGRi7QAcyrKguhLBAw5pVbKPhHt1ueyxQouprNeI8Ysic1NarGCqWTiuKdkNOt0Ow3oCVTHLsSDfErGfdD_TnVQAdr8va-PWAUqBr6IJrAIaC_B1FTPX9phY6zmugqZb3zGF7iEwYkTCRtTC9onk-wa-kdrrJMBuVi284f8JaTRaT_kNqy1UcdLS_h2uHDnkakUvf2wWELxhDsLN4BBZA">
+          <div class="min-w-0">
+            <p class="fw-bold mb-0 text-truncate">Valentina Ruiz</p>
+            <span class="badge nd-badge-green" style="font-size:.7rem;padding:.2rem .5rem">Libre de Gluten</span>
+          </div>
+        </div>
+
+        <nav class="nav flex-column gap-1" aria-label="Secciones">
+          <a class="nd-nav" href="descubrir.html"><i class="bi bi-compass"></i>Descubrir</a>
+          <a class="nd-nav" href="asistente.html"><i class="bi bi-stars"></i>Asistente Inteligente</a>
+          <a class="nd-nav" href="PerfilClinico.html"><i class="bi bi-shield-plus"></i>Mis Dietas y Salud</a>
+          <a class="nd-nav" href="presupuesto.html"><i class="bi bi-cash-stack"></i>Mi Presupuesto</a>
+          <a class="nd-nav active" href="favoritos.html" aria-current="page"><i class="bi bi-bookmark-fill"></i>Favoritos e Historial</a>
+        </nav>
+      </div>
+
+      <div class="pt-3 border-top">
+        <button class="btn nd-btn-gradient w-100 mb-2" id="surpriseBtn"><i class="bi bi-dice-5 me-2"></i>¡Sorpréndeme!</button>
+        <a class="nd-nav" href="Confi.html"><i class="bi bi-gear"></i>Ajustes</a>
+        <a class="nd-nav" href="login.html"><i class="bi bi-box-arrow-right"></i>Cerrar Sesión</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="nd-content">
+    <!-- BARRA SUPERIOR -->
+    <header class="nd-topbar sticky-top">
+      <div class="d-flex align-items-center justify-content-between gap-3 px-3 px-lg-4 py-2">
+        <div class="d-flex align-items-center gap-2 flex-grow-1">
+          <button class="btn btn-light d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-label="Abrir menú"><i class="bi bi-list fs-5"></i></button>
+          <div class="nd-search position-relative" style="max-width:34rem">
+            <i class="bi bi-search"></i>
+            <input type="search" class="form-control" id="searchInput" placeholder="Buscar en platos guardados, ingredientes o historial..." aria-label="Buscar">
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <a href="presupuesto.html" class="nd-budget d-none d-md-inline-flex text-decoration-none py-1">
+            <i class="bi bi-wallet2 nd-text-secondary fs-5"></i>
+            <span class="lh-1"><span class="d-block nd-cap" style="font-size:.62rem">Presupuesto restante</span><strong>$42.50</strong> <span class="text-body-secondary">/ $120.00</span></span>
+          </a>
+          <button class="btn nd-icon-btn" aria-label="Notificaciones" data-notify="No tienes notificaciones nuevas"><i class="bi bi-bell"></i><span class="nd-ping"></span></button>
+          <span class="nd-text-primary fs-5 px-1" aria-label="Favoritos"><i class="bi bi-heart-fill"></i></span>
+          <img class="nd-avatar-sm" alt="Valentina" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAiwU3kLJaL5grKqOg922BHUk02U6MxIiLI2OIQT2FbjhmwPwmSt5o1mL2TogyzQ_0raC1IofmXV7ZMcLHOdMNPoUIUEkahStJN_pa7iZu8Sb9G5jG3BDmZcUa6bzs9fwFj84yAdpBBL4anNY55JraySwwbFOlSRccN4jn4zPJmIlL6x7KBYDUASWx9gNzT40JnyrDb_Q8s-kYusu4L_wyY4dzgFuwhhw9i6H1J0cVFek0uFxnZiHp5Q">
+        </div>
+      </div>
+      <!-- Pestañas con contador -->
+      <div class="fv-tabs px-3 px-lg-4 py-2 overflow-x-auto">
+        <ul class="nav flex-nowrap gap-1" id="topTabs" aria-label="Filtro principal">
+          <li class="nav-item"><button class="nav-link" type="button" data-tab="todos">Todos <span class="fv-count">28</span></button></li>
+          <li class="nav-item"><button class="nav-link active" type="button" data-tab="favoritos"><i class="bi bi-heart-fill"></i>Favoritos <span class="fv-count">12</span></button></li>
+          <li class="nav-item"><button class="nav-link" type="button" data-tab="recientes">Cocinados Recientemente <span class="fv-count">16</span></button></li>
+          <li class="nav-item"><button class="nav-link" type="button" data-tab="express"><i class="bi bi-lightning-charge"></i>Platos Express &lt; 15 min <span class="fv-count">6</span></button></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container-xxl px-3 px-lg-4 py-4 d-flex flex-column gap-4">
+
+      <!-- Encabezado -->
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3">
+        <div style="max-width:42rem">
+          <span class="fv-eyebrow mb-2"><i class="bi bi-journal-richtext"></i>Repertorio Personalizado &amp; Nutrición Sin Estrés</span>
+          <h2 class="nd-h1 mb-2">Favoritos e Historial Culinario</h2>
+          <p class="text-body-secondary fs-6 mb-0">Tus recetas estrella guardadas y el registro de comidas que resolvieron tu día sin complicaciones ni estrés.</p>
+        </div>
+        <button class="btn nd-btn-primary fv-btn-plan px-4 py-3" type="button" data-notify="Menú semanal en construcción con tus favoritos"><i class="bi bi-calendar-week me-2"></i>Planificar Menú Semanal con Favoritos</button>
+      </div>
+
+      <!-- Filtros -->
+      <section class="fv-filters p-3" aria-label="Filtros">
+        <ul class="nav fv-seg d-inline-flex mb-3" id="segTabs">
+          <li class="nav-item"><button class="nav-link active" type="button" data-go="#favoritos-sec">Mis Favoritos Guardados (12)</button></li>
+          <li class="nav-item"><button class="nav-link" type="button" data-go="#historial">Historial de Elecciones (16)</button></li>
+        </ul>
+        <div class="d-flex flex-wrap align-items-center gap-2" id="chips">
+          <span class="fv-chip is-on" aria-label="Filtro fijo: sin gluten"><i class="bi bi-shield-check"></i>Sin Gluten (100%)</span>
+          <button class="fv-chip" type="button" data-filter="eco"><i class="bi bi-piggy-bank"></i>Económicos (&lt; $6)</button>
+          <button class="fv-chip" type="button" data-filter="fast"><i class="bi bi-stopwatch"></i>Rápidos (&lt; 20 min)</button>
+          <button class="fv-chip" type="button" data-filter="hot"><i class="bi bi-fire"></i>Antojo Caliente</button>
+          <button class="fv-chip-link" type="button" data-go="#patron"><i class="bi bi-bar-chart-line me-1"></i>Ver Estadísticas de Acierto</button>
+        </div>
+      </section>
+
+      <!-- Platos estrella -->
+      <section id="favoritos-sec" aria-labelledby="starTitle">
+        <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+          <div class="d-flex align-items-center gap-3">
+            <span class="fv-sec-icon"><i class="bi bi-star"></i></span>
+            <div>
+              <h3 class="nd-h3 mb-0" id="starTitle">Tus Platos Estrella</h3>
+              <small class="text-body-secondary">Las recetas más repetidas y con mejor balance médico/emocional</small>
+            </div>
+          </div>
+          <small class="text-body-secondary text-end" id="showingCount" aria-live="polite">Mostrando 4 de 12 recetas guardadas</small>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-xxl-4 g-3" id="dishGrid">
+          <div class="col fv-col" data-title="salmón glaseado al limón con espárragos" data-min="18" data-price="6.20" data-hot="1">
+            <article class="fv-card">
+              <div class="fv-img">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvo1Blb_qb_4an2d9WRAgr99arukFN6JqTp_BI0v2OeeV4Kwhck2ZXThifQwU4Yvt8FXh3sBvLNNXKqpzyG8J9GKjAs61ht2yABrPP5JBRFTV3Tnnc_TZnhRJ8_1E7rKAH_WOA6QYvwVGodV1naBhXUaj1Y_7pGcNqCHrrDlDqGy9wWOm1jRlc_Zl3ScO_jDm547078JjcWAbX6-p7MLiSEi5aybM48_0z_VHpBwQYgXlMn3dzuSmgcQ" alt="Salmón Glaseado al Limón con Espárragos" loading="lazy">
+                <span class="fv-chip-img fv-time">18 min</span>
+                <span class="fv-chip-img fv-price">$6.20 / ración</span>
+                <button class="fv-heart" type="button" aria-pressed="true" aria-label="Quitar Salmón Glaseado al Limón con Espárragos de favoritos"><i class="bi bi-heart-fill"></i></button>
+                <span class="fv-chip-img fv-match">98% Match</span>
+                <span class="fv-chip-img fv-kcal">520 kcal</span>
+              </div>
+              <div class="fv-body">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fv-diet"><i class="bi bi-shield-check"></i><span>Sin Gluten &amp; Anti-inflamatorio</span></span>
+                  <span class="fv-times">Cocinado<br>4x</span>
+                </div>
+                <h4 class="fv-title">Salmón Glaseado al Limón con Espárragos</h4>
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                  <span class="d-flex align-items-center gap-1"><span class="fv-stars" aria-hidden="true"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span><strong class="small">5.0</strong></span>
+                  <span class="fv-feel"><span class="nd-dot" style="background:var(--nd-muted);width:4px;height:4px"></span>Digestión perfecta</span>
+                </div>
+                <div class="fv-actions">
+                  <button class="btn nd-btn-primary" type="button" data-cook="Salmón Glaseado al Limón con Espárragos"><i class="bi bi-cup-hot me-1"></i>Cocinar de nuevo</button>
+                  <button class="btn btn-ic" type="button" aria-label="Ajustar receta" data-notify="Ajustes de receta: próximamente"><i class="bi bi-sliders"></i></button>
+                  <button class="btn btn-ic" type="button" aria-label="Guardar en colección" data-notify="Guardado en tu colección"><i class="bi bi-folder2"></i></button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col fv-col" data-title="bowl mediterráneo de quinoa y aguacate" data-min="15" data-price="3.85" data-hot="0">
+            <article class="fv-card">
+              <div class="fv-img">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyYws5Fys_aE-adxhuDD_sz2h4X7rc2d2oRcpMt-1GDeznVLVkSKHaGCU4tUFmdYK8baZ3VqwT1eDJviw2TG5fANsSLQaOXmJxrUzcJgcczs1s-DUwAiN_R4-HfsKfLCLt_2ub2PRKySlcc119FVUtahmxSrhyJle2zNjD6XDT5t79I1VKq0O0RdUMhiy5vir4M_l_yLEU5vZXCkQn99eK_vOWZx0uRC9DR6apWHpmCt7qKIucqkNdIw" alt="Bowl Mediterráneo de Quinoa y Aguacate" loading="lazy">
+                <span class="fv-chip-img fv-time">15 min</span>
+                <span class="fv-chip-img fv-price">$3.85 / ración</span>
+                <button class="fv-heart" type="button" aria-pressed="true" aria-label="Quitar Bowl Mediterráneo de Quinoa y Aguacate de favoritos"><i class="bi bi-heart-fill"></i></button>
+                <span class="fv-chip-img fv-match">95% Match</span>
+                <span class="fv-chip-img fv-kcal">480 kcal</span>
+              </div>
+              <div class="fv-body">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fv-diet"><i class="bi bi-shield-check"></i><span>Cero Trazas Gluten</span></span>
+                  <span class="fv-times">Cocinado<br>6x</span>
+                </div>
+                <h4 class="fv-title">Bowl Mediterráneo de Quinoa y Aguacate</h4>
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                  <span class="d-flex align-items-center gap-1"><span class="fv-stars" aria-hidden="true"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span><strong class="small">4.9</strong></span>
+                  <span class="fv-feel"><span class="nd-dot" style="background:var(--nd-muted);width:4px;height:4px"></span>Energía limpia</span>
+                </div>
+                <div class="fv-actions">
+                  <button class="btn nd-btn-primary" type="button" data-cook="Bowl Mediterráneo de Quinoa y Aguacate"><i class="bi bi-cup-hot me-1"></i>Cocinar de nuevo</button>
+                  <button class="btn btn-ic" type="button" aria-label="Ajustar receta" data-notify="Ajustes de receta: próximamente"><i class="bi bi-sliders"></i></button>
+                  <button class="btn btn-ic" type="button" aria-label="Guardar en colección" data-notify="Guardado en tu colección"><i class="bi bi-folder2"></i></button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col fv-col" data-title="tacos saludables de pollo y yogur griego" data-min="20" data-price="4.50" data-hot="1">
+            <article class="fv-card">
+              <div class="fv-img">
+                <div class="fv-ph" aria-hidden="true"><i class="bi bi-egg-fried"></i></div>
+                <span class="fv-chip-img fv-time">20 min</span>
+                <span class="fv-chip-img fv-price">$4.50 / ración</span>
+                <button class="fv-heart" type="button" aria-pressed="true" aria-label="Quitar Tacos Saludables de Pollo y Yogur Griego de favoritos"><i class="bi bi-heart-fill"></i></button>
+                <span class="fv-chip-img fv-match">92% Match</span>
+                <span class="fv-chip-img fv-kcal">510 kcal</span>
+              </div>
+              <div class="fv-body">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fv-diet"><i class="bi bi-shield-check"></i><span>Maíz 100% Sin Gluten</span></span>
+                  <span class="fv-times">Cocinado<br>3x</span>
+                </div>
+                <h4 class="fv-title">Tacos Saludables de Pollo y Yogur Griego</h4>
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                  <span class="d-flex align-items-center gap-1"><span class="fv-stars" aria-hidden="true"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span><strong class="small">4.8</strong></span>
+                  <span class="fv-feel"><span class="nd-dot" style="background:var(--nd-muted);width:4px;height:4px"></span>Saciedad alta</span>
+                </div>
+                <div class="fv-actions">
+                  <button class="btn nd-btn-primary" type="button" data-cook="Tacos Saludables de Pollo y Yogur Griego"><i class="bi bi-cup-hot me-1"></i>Cocinar de nuevo</button>
+                  <button class="btn btn-ic" type="button" aria-label="Ajustar receta" data-notify="Ajustes de receta: próximamente"><i class="bi bi-sliders"></i></button>
+                  <button class="btn btn-ic" type="button" aria-label="Guardar en colección" data-notify="Guardado en tu colección"><i class="bi bi-folder2"></i></button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col fv-col" data-title="crema suave de calabaza & semillas tostadas" data-min="12" data-price="2.40" data-hot="1">
+            <article class="fv-card">
+              <div class="fv-img">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6TlMYSCeaVSEChGmFW2g9mpZGctMswEiDdyk_Lwhcj3P5aHNDg5IryKObhpr1Osvzcuih-18-lj0raQJha7IiVwcGrDXdBiAZarFzUZe93ymvsc2h4MD8K_f2ASt-aa35C03DKUOOq8i7cvSTSPlk7tr30dqYZ-YtRxi8qSVoKz9_CP_7BrOA8vDuY5WM8NadcBC6n7HqHU4T7K3XhdYBtpv9GPAPJR6yWbzKV4oIXQ8JAltCS9sI8Q" alt="Crema Suave de Calabaza & Semillas Tostadas" loading="lazy">
+                <span class="fv-chip-img fv-time">12 min</span>
+                <span class="fv-chip-img fv-price">$2.40 / ración</span>
+                <button class="fv-heart" type="button" aria-pressed="true" aria-label="Quitar Crema Suave de Calabaza & Semillas Tostadas de favoritos"><i class="bi bi-heart-fill"></i></button>
+                <span class="fv-chip-img fv-match">99% Match Económico</span>
+                <span class="fv-chip-img fv-kcal">310 kcal</span>
+              </div>
+              <div class="fv-body">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fv-diet"><i class="bi bi-shield-check"></i><span>Sin Lactosa &amp; Confort</span></span>
+                  <span class="fv-times">Cocinado<br>5x</span>
+                </div>
+                <h4 class="fv-title">Crema Suave de Calabaza &amp; Semillas Tostadas</h4>
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                  <span class="d-flex align-items-center gap-1"><span class="fv-stars" aria-hidden="true"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span><strong class="small">5.0</strong></span>
+                  <span class="fv-feel"><span class="nd-dot" style="background:var(--nd-muted);width:4px;height:4px"></span>Calma digestiva</span>
+                </div>
+                <div class="fv-actions">
+                  <button class="btn nd-btn-primary" type="button" data-cook="Crema Suave de Calabaza & Semillas Tostadas"><i class="bi bi-cup-hot me-1"></i>Cocinar de nuevo</button>
+                  <button class="btn btn-ic" type="button" aria-label="Ajustar receta" data-notify="Ajustes de receta: próximamente"><i class="bi bi-sliders"></i></button>
+                  <button class="btn btn-ic" type="button" aria-label="Guardar en colección" data-notify="Guardado en tu colección"><i class="bi bi-folder2"></i></button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="text-center text-body-secondary py-4 mb-0" id="emptyMsg" hidden>Ningún plato coincide con tu búsqueda o filtros.</p>
+      </section>
+
+      <!-- Historial + panel lateral -->
+      <div class="row g-4">
+        <section class="col-xl-8" id="historial" aria-labelledby="histTitle">
+          <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+            <div class="d-flex align-items-center gap-3">
+              <span class="fv-sec-icon is-grey"><i class="bi bi-graph-up-arrow"></i></span>
+              <div>
+                <h3 class="nd-h3 mb-0" id="histTitle">Historial de Decisiones Recientes</h3>
+                <small class="text-body-secondary">Momentos en que NutriDecide desbloqueó tu comida sin fricción</small>
+              </div>
+            </div>
+            <button type="button" class="btn btn-link nd-text-primary fw-bold small text-decoration-none p-0 text-nowrap" id="exportBtn"><i class="bi bi-download me-1"></i>Exportar PDF</button>
+          </div>
+
+          <div class="fv-timeline">
+            <article class="fv-event" style="--dot:#a92a4d">
+              <div class="d-flex flex-wrap justify-content-between gap-2">
+                <span class="fv-when"><i class="bi bi-brightness-high me-1"></i>Hoy &bull; Almuerzo (13:45)</span>
+                <span class="fv-tag fv-tag-green">Resuelto en 30s</span>
+              </div>
+              <h4 class="fv-evtitle">Bowl Mediterráneo de Quinoa</h4>
+              <p class="text-body-secondary mb-3">Resuelto con el Asistente Inteligente usando ingredientes ya existentes en tu despensa.</p>
+              <div class="fv-evbox">
+                <span><i class="bi bi-piggy-bank"></i>Ahorraste $10.65 vs delivery</span>
+                <span><i class="bi bi-emoji-smile"></i>Digestión Ligera reportada</span>
+                <span class="w-100 fw-normal">Costo real: $3.85</span>
+              </div>
+            </article>
+
+            <article class="fv-event" style="--dot:#984533">
+              <div class="d-flex flex-wrap justify-content-between gap-2">
+                <span class="fv-when"><i class="bi bi-moon-stars me-1"></i>Ayer &bull; Cena (20:30)</span>
+                <span class="fv-tag fv-tag-coral">Zero Waste Trigger</span>
+              </div>
+              <h4 class="fv-evtitle">Tortilla de Espinacas y Queso de Cabra Curado</h4>
+              <p class="text-body-secondary mb-3">Aprovechó ingredientes próximos a caducar (calabacín y huevos frescos de granja).</p>
+              <div class="fv-evbox">
+                <span><i class="bi bi-stopwatch"></i>Listo en 10 min</span>
+                <span><i class="bi bi-receipt"></i>Costo ración: $2.15</span>
+                <span>Evitó desperdicio alimentario</span>
+              </div>
+            </article>
+
+            <article class="fv-event" style="--dot:#38654a">
+              <div class="d-flex flex-wrap justify-content-between gap-2">
+                <span class="fv-when" style="color:var(--nd-green)"><i class="bi bi-calendar3 me-1"></i>Miércoles &bull; Almuerzo (14:10)</span>
+                <span class="fv-tag fv-tag-coral">Sugerencia 'Sorpréndeme'</span>
+              </div>
+              <h4 class="fv-evtitle">Salmón Glaseado al Limón</h4>
+              <p class="text-body-secondary mb-3">Elegido mediante ruleta algorítmica cuando no sabías qué cocinar tras reunión agotadora.</p>
+              <div class="fv-evbox">
+                <span><i class="bi bi-shield-check"></i>100% Sin Gluten verificado</span>
+                <span><i class="bi bi-receipt"></i>$6.20 por porción</span>
+              </div>
+            </article>
+          </div>
+
+          <button class="fv-more mt-4" type="button" id="moreBtn"><i class="bi bi-clock-history me-2"></i>Cargar historial anterior (Últimos 30 días)</button>
+        </section>
+
+        <aside class="col-xl-4 d-flex flex-column gap-4">
+          <section class="nd-panel p-3 p-xl-4" id="patron" aria-labelledby="patTitle">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="nd-h3 mb-0" id="patTitle"><i class="bi bi-bullseye nd-text-primary me-2"></i>Tu Patrón de Decisión</h3>
+              <span class="badge nd-badge-grey" style="background:var(--nd-chip);color:var(--nd-muted)">Este Mes</span>
+            </div>
+            <p class="text-body-secondary">Cómo la inteligencia culinaria de NutriDecide reduce la fatiga mental y protege tu presupuesto familiar:</p>
+            <div class="d-flex flex-column gap-3">
+              <div class="fv-stat">
+                <span class="nd-icon-box" style="background:#ffdad3;color:var(--nd-primary)"><i class="bi bi-lightning-charge"></i></span>
+                <div><div class="fv-stat-big">88%<small>de decisiones en &lt; 1 min</small></div><p class="small text-body-secondary mb-0 mt-1">Eliminando la parálisis por análisis ante la nevera y el estrés de última hora.</p></div>
+              </div>
+              <div class="fv-stat">
+                <span class="nd-icon-box nd-ib-green"><i class="bi bi-basket3"></i></span>
+                <div><div class="nd-cap" style="font-size:.66rem">Ingrediente predilecto</div><div class="fw-bold">Quinoa &amp; Aguacate Fresco</div><p class="small text-body-secondary mb-0">Presente en el 42% de tus almuerzos con reporte de digestión óptima.</p></div>
+              </div>
+              <div class="fv-stat">
+                <span class="nd-icon-box nd-ib-coral"><i class="bi bi-bank"></i></span>
+                <div><div class="fv-stat-big">+$284.50<small>Ahorro acumulado</small></div><p class="small text-body-secondary mb-0 mt-1">Comparado con alternativas de comida a domicilio o pedidos imprevistos.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="fv-pro p-3 p-xl-4" aria-labelledby="proTitle">
+            <div class="d-flex align-items-center gap-2 mb-3 nd-text-primary fw-bold small text-uppercase"><i class="bi bi-lightbulb"></i>Recomendación proactiva</div>
+            <h3 class="nd-h3 mb-3" id="proTitle" style="font-size:1.35rem;line-height:1.3">¿Quieres variar tu repertorio culinario esta semana?</h3>
+            <p class="text-body-secondary">Descubrimos 3 recetas nuevas 100% compatibles con tu celiaquía y con ingredientes que ya tienes en tu despensa.</p>
+            <a href="descubrir.html" class="btn nd-btn-primary mt-2">Explorar Nuevos Sabores <i class="bi bi-arrow-right ms-1"></i></a>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Aviso emergente -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="appToast" class="toast nd-toast align-items-center" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex"><div class="toast-body" id="appToastBody"></div><button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/nd-comun.js"></script>
+  <script src="../js/favoritos.js"></script>
+</body>
+</html>

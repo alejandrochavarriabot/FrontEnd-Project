@@ -1,0 +1,560 @@
+/* Estilos generales */
+
+body {
+    background: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2b2226;
+    font-size: 0.9rem;
+}
+
+
+/* Menu lateral */
+
+.menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 240px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 26px;
+    padding-left: 6px;
+    text-decoration: none;
+}
+
+
+.logo i {
+    background: #a8174b;
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+}
+
+
+.logo b {
+    color: #a8174b;
+    font-size: 1.3rem;
+    display: block;
+    line-height: 1;
+}
+
+
+.logo small {
+    color: #666;
+    font-size: 0.68rem;
+}
+
+
+.enlace-menu {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 9px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+
+.enlace-menu:hover {
+    background: #fce8ec;
+    color: #333;
+}
+
+
+.enlace-menu.activo {
+    background: #a8174b;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 3px 8px #a8174b44;
+}
+
+
+.usuario {
+    margin-top: auto;
+    background: #f4f0f0;
+    border-radius: 12px;
+    padding: 8px 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+
+.usuario img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.version {
+    font-size: 0.65rem;
+    color: #555;
+    margin-top: 10px;
+    padding-left: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Contenido principal */
+
+.menu + div,
+.contenido {
+    margin-left: 240px;
+    padding: 12px 22px;
+    min-height: 100vh;
+    background: #faf7f7;
+}
+
+
+/* Barra superior */
+
+.barra-superior {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+
+.saludo {
+    flex: 1;
+}
+
+
+.saludo h6 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+.saludo small {
+    font-size: 0.68rem;
+    color: #555;
+}
+
+
+.buscador {
+    position: relative;
+    width: 310px;
+}
+
+
+.buscador i {
+    position: absolute;
+    left: 12px;
+    top: 9px;
+    color: #555;
+}
+
+
+.buscador input {
+    border-radius: 20px;
+    font-size: 0.75rem;
+    padding-left: 34px;
+    height: 34px;
+}
+
+
+.presupuesto {
+    background: #fce8ec;
+    border: 1px solid #f3d3da;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 165px;
+}
+
+
+.presupuesto .cartera {
+    background: #f5c6d0;
+    color: #a8174b;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+}
+
+
+.progreso {
+    height: 3px;
+    background: #eee;
+    border-radius: 4px;
+    margin-top: 3px;
+}
+
+
+.progreso i {
+    display: block;
+    height: 100%;
+    width: 35%;
+    background: #a8174b;
+    border-radius: 4px;
+}
+
+
+.campana {
+    position: relative;
+}
+
+
+.campana:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 7px;
+    height: 7px;
+    background: #e03;
+    border-radius: 50%;
+}
+
+
+/* Bienvenida */
+
+.bienvenida {
+    background: linear-gradient(110deg, #fff 30%, #f9dde3);
+    border: 1px solid #f1d9de;
+    border-radius: 18px;
+    padding: 18px 22px;
+}
+
+
+.bienvenida h2 {
+    font-weight: 800;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin: 8px 0 6px;
+}
+
+
+.etiqueta-roja {
+    background: #f8d7de;
+    color: #a8174b;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.65rem;
+}
+
+
+.etiqueta-verde {
+    background: #dff3e8;
+    color: #2e7d5b;
+    border-radius: 7px;
+    padding: 2px 7px;
+    font-size: 0.65rem;
+}
+
+
+.filtro {
+    background: #f1ecec;
+    border: 1px solid #e7e0e0;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.68rem;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+
+.filtro i,
+.boton-principal i {
+    font-style: normal;
+}
+
+
+.filtro .bi,
+.boton-principal .bi {
+    margin-right: 0.25rem;
+}
+
+
+.boton-principal {
+    background: #a8174b;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 13px 0;
+    width: 100%;
+    font-size: 1rem;
+    box-shadow: 0 6px 14px #a8174b55;
+}
+
+
+.boton-principal:hover {
+    background: #c0225c;
+    color: #fff;
+}
+
+
+.texto-morado {
+    color: #a8174b;
+}
+
+
+.icono-morado {
+    color: #a8174b;
+}
+
+
+.titulo-seccion {
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+
+/* Tarjetas de recetas */
+
+.tarjeta-receta {
+    border: 1px solid #eee;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    height: 100%;
+}
+
+
+.imagen-receta {
+    height: 120px;
+    position: relative;
+    background: linear-gradient(135deg, #e9c9a0, #a87b4f);
+}
+
+
+.imagen-receta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.imagen-receta:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 50%;
+    background: linear-gradient(transparent, #000a);
+}
+
+
+.imagen-receta .etiqueta-verde {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2;
+}
+
+
+.porcentaje {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    background: #f8edc8;
+    font-size: 0.62rem;
+    font-weight: 600;
+    border-radius: 7px;
+    padding: 2px 6px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+
+.informacion-receta {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    right: 8px;
+    z-index: 2;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.contenido-receta {
+    padding: 10px 10px 12px;
+    font-size: 0.7rem;
+    color: #666;
+}
+
+
+.contenido-receta h6 {
+    color: #2b2226;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+
+.contenido-receta p {
+    margin-bottom: 0;
+}
+
+
+.despensa {
+    color: #a8174b;
+    font-size: 0.65rem;
+    line-height: 1.1;
+}
+
+
+.boton-secundario {
+    background: #f1ecec;
+    color: #444;
+    font-size: 0.72rem;
+    border-radius: 6px;
+}
+
+
+.boton-secundario:hover {
+    background: #e6dfdf;
+    color: #222;
+}
+
+
+/* Panel derecho */
+
+.panel {
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+    margin-bottom: 12px;
+}
+
+
+.panel h6 {
+    font-weight: 800;
+}
+
+
+.antojo {
+    border: 1px solid #eee;
+    background: #f7f3f3;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
+.antojo small {
+    color: #666;
+    font-size: 0.65rem;
+}
+
+
+.antojo i {
+    background: #fde3e8;
+    color: #a8174b;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+}
+
+
+.antojo.seleccionado {
+    border-color: #a8174b;
+    background: #fff;
+}
+
+
+.antojo.seleccionado i {
+    background: #a8174b;
+    color: #fff;
+}
+
+
+.antojo i.icono-verde {
+    background: #e1f3e9;
+    color: #2e7d5b;
+}
+
+
+.mensaje-asistente {
+    background: #f4f0f0;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.72rem;
+}
+
+
+.boton-verde {
+    background: #8b3a2f;
+    color: #fff;
+    font-size: 0.72rem;
+    border-radius: 6px;
+}
+
+
+.boton-verde:hover {
+    background: #6f2d24;
+    color: #fff;
+}
+
+
+/* Adaptación para pantallas pequeñas */
+
+@media (max-width: 900px) {
+
+    .menu {
+        display: none;
+    }
+
+    .menu + div,
+    .contenido {
+        margin-left: 0;
+    }
+
+    .buscador {
+        display: none;
+    }
+
+}
+
+
+/* Foto del usuario */
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    flex: none;
+    background: linear-gradient(135deg, #f3b6a0, #c2275f);
+}

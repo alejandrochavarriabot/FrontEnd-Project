@@ -1,0 +1,50 @@
+/* Vista 6 - Mi Presupuesto (estilos propios de esta página) */
+
+/* Selector de periodo */
+.pp-periods { background: var(--nd-chip); border: 1px solid var(--nd-line); border-radius: .85rem; padding: .3rem; gap: .2rem; }
+.pp-periods .nav-link { color: var(--nd-muted); font-weight: 600; border-radius: .6rem; padding: .45rem 1rem; }
+.pp-periods .nav-link:hover { color: var(--nd-ink); }
+.pp-periods .nav-link.active { background: #fff; color: var(--nd-primary); box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+
+/* Tarjetas de resumen */
+.pp-amount { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.pp-amount small { font-size: 1rem; font-weight: 500; color: var(--nd-muted); }
+.pp-sub { font-size: .75rem; font-weight: 600; color: var(--nd-muted); }
+.pp-track { height: .6rem; background: #ede7e7; border-radius: 999px; }
+.pp-track .progress-bar { border-radius: 999px; transition: width .6s ease-out; }
+.pp-bar-red { background: var(--nd-primary); } .pp-bar-green { background: var(--nd-green); } .pp-bar-grey { background: #cfc4c5; }
+.pp-link { color: var(--nd-primary); font-weight: 700; text-decoration: none; background: none; border: 0; padding: 0; }
+.pp-link:hover { text-decoration: underline; }
+.pp-divider { border-top: 1px solid var(--nd-line); }
+.pp-note { background: var(--nd-soft); border: 1px solid var(--nd-line); border-radius: .75rem; font-weight: 600; font-size: .78rem; }
+
+/* Gráfico de barras (solo HTML + CSS, sin librerías) */
+.pp-legend { font-size: .75rem; font-weight: 600; color: var(--nd-muted); }
+.pp-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .35rem; }
+.pp-swatch-dash { display: inline-block; width: 16px; border-top: 2px dashed var(--nd-primary); margin-right: .35rem; vertical-align: middle; }
+.pp-plot { --max: 22; position: relative; height: 12.5rem; margin-top: .5rem; }
+.pp-cols, .pp-days { display: grid; grid-template-columns: repeat(7, 1fr); }
+.pp-cols { position: absolute; inset: 0; align-items: end; }
+.pp-col { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.pp-val { font-size: .75rem; font-weight: 600; color: var(--nd-muted); margin-bottom: .25rem; }
+.pp-bar { width: 60%; max-width: 3.2rem; height: calc(var(--v) / var(--max) * 100%); background: #9fcfb0; border-radius: .5rem .5rem 0 0; transition: height .5s ease-out; }
+.pp-col.is-peak .pp-bar { background: var(--nd-primary); }
+.pp-col.is-peak .pp-val { color: var(--nd-primary); font-weight: 700; }
+.pp-col.is-today .pp-bar { background: #eee6e6; border-radius: .5rem; }
+.pp-limit { position: absolute; left: 0; right: 0; bottom: calc(var(--lim) / var(--max) * 100%); border-top: 1.5px dashed rgba(169,42,77,.55); pointer-events: none; }
+.pp-limit span { position: absolute; right: 0; bottom: .35rem; font-size: .75rem; font-weight: 600; color: var(--nd-primary); background: #fff; padding-left: .4rem; }
+.pp-days { border-top: 0; margin-top: .4rem; text-align: center; font-weight: 600; color: var(--nd-muted); }
+.pp-days .is-peak { color: var(--nd-primary); font-weight: 800; }
+
+/* Categorías */
+.pp-cat-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .5rem; background: var(--c); }
+.pp-cat .progress-bar { background: var(--c); }
+.pp-cat .progress { height: .5rem; background: #ede7e7; border-radius: 999px; }
+
+/* Micro-asistente */
+.pp-assist { background: linear-gradient(180deg, #fff 0%, #fdf1f1 100%); }
+.pp-assist-eyebrow { color: var(--nd-primary); font-weight: 800; letter-spacing: .06em; font-size: .8rem; text-transform: uppercase; }
+.pp-assist-box { background: #f5eded; border: 1px solid var(--nd-line); border-radius: .75rem; color: var(--nd-muted); line-height: 1.6; font-size: .95rem; }
+.pp-assist-box strong { color: var(--nd-ink); }
+.pp-assist-box .nd-text-green { font-weight: 800; }
+.pp-assist-box .nd-text-primary { font-weight: 800; }
